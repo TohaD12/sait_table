@@ -43,7 +43,7 @@ class TaskForm(ModelForm):
             }),
             'after_adjustment_quantity_actual': TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Фактический остаток после карректировки'
+                'placeholder': 'Фактический остаток после корректировки'
             }),
             'after_adjustment_quantity_1c': TextInput(attrs={
                 'class': 'form-control',
@@ -98,7 +98,7 @@ class AccessoriesForm(ModelForm):
             }),
             'after_adjustment_quantity_actual': TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Фактический остаток после карректировки'
+                'placeholder': 'Фактический остаток после корректировки'
             }),
             'after_adjustment_quantity_1c': TextInput(attrs={
                 'class': 'form-control',

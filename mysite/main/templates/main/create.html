@@ -1,12 +1,12 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Добавить перещет
+Добавить
 {% endblock %}
 
 {% block content %}
 
-    <h1>Добавить позицию</h1>
+    <h1>Добавить пересчет</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.details_name }}<br>
