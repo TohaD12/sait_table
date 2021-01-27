@@ -3,8 +3,4 @@ source my_env/bin/activate
 python manage.py makemigrations
 python manage.py migrate
 test pull
-<<<<<<< HEAD
-=======
-second pull for craken
-teeeee
->>>>>>> master
+
