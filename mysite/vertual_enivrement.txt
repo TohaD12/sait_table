@@ -1,0 +1,4 @@
+python3 manage.py runserver
+source my_env/bin/activate
+python manage.py makemigrations
+python manage.py migrate

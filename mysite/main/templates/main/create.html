@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Добавить перещет
+{% endblock %}
+
+{% block content %}
+
+    <h1>Добавить позицию</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.details_name }}<br>
+        {{ form.code }}<br>
+        {{ form.color_code }}<br>
+        {{ form.quantity_actual }}<br>
+        {{ form.quantity_1c }}<br>
+        {{ form.delta }}<br>
+        {{ form.adjustments }}<br>
+        {{ form.adjustments_marriage }}<br>
+        {{ form.after_adjustment_quantity_actual }}<br>
+        {{ form.after_adjustment_quantity_1c }}<br>
+        {{ form.after_adjustment_delta }}<br>
+        {{ form.release_date }}<br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+    </form>
+{% endblock %}
