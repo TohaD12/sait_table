@@ -4,3 +4,4 @@ python manage.py makemigrations
 python manage.py migrate
 test pull
 second pull for craken
+teeeee
