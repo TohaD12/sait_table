@@ -7,4 +7,4 @@ test pull
 aaaaaa
 =======
 second pull for craken
->>>>>>> master
+aaaaaaa
