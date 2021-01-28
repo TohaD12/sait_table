@@ -5,7 +5,15 @@
 {% endblock %}
 
 {% block content %}
+
     <h1>Добавить пересчет</h1>
+
+    <script type="text/javascript">
+        $(function() {
+            $("#id_details_name").focus();
+        });
+    </script>
+
     <form method="post">
         {% csrf_token %}
         {{ form.details_name }}<br>
@@ -21,4 +29,42 @@
         {{ form.release_date }}<br>
         <button type="submit" class="btn btn-success">Добавить</button>
     </form>
+
+       <script type="text/javascript">
+        $('input').live("keypress", function (e) {
+        /* ENTER PRESSED*/
+        var OffSet = 0;
+        if (e.keyCode == 13) {
+            /* FOCUS ELEMENT */
+            if ($(this).is("input[type='radio']")) {
+                var tblID = $(this).closest('table').attr('id');
+                var radios = $('#' + tblID).find(":input");
+                //alert(radios.index(this));
+                OffSet = radios.length - radios.index(this) - 1;
+            }
+            //alert(OffSet);
+
+            var inputs = $(this).parents("form").eq(0).find(":input");
+            var idx = inputs.index(this);
+            inputs[idx + OffSet].blur();
+
+            try {
+                inputs[idx + OffSet].selectionStart = inputs[idx + OffSet].selectionEnd = -1;
+            } catch (e) {
+
+            }
+            if (idx == inputs.length - 1) {
+                inputs[0].select();
+            } else {
+                inputs[idx + 1 + OffSet].focus(); //  handles submit buttons
+                try {
+                    inputs[idx + 1 + OffSet].select();
+                } catch (e) {
+                }
+            }
+            return false;
+        }
+    });
+       </script>
+
 {% endblock %}
