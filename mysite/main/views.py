@@ -78,10 +78,17 @@ def create_accessories(request):
             obj.save()
 
     form = AccessoriesForm()
+    name = Accessories.objects.all()
     context = {
-        'form': form
+        'form': form,
+        'name': name
     }
     return render(request, 'main/create_accessories.html', context)
+
+#
+# def create_accessories(request):
+#     name = Accessories.objects.all()
+#     return render(request, 'main/create_accessories.html', {'name': name})
 
 
 def search(request):
