@@ -49,8 +49,10 @@ def create(request):
             obj.save()
 
     form = TaskForm()
+    name = Task.objects.filter().order_by('-id')[:1]
     context = {
-        'form': form
+        'form': form,
+        'name': name
     }
     return render(request, 'main/create.html', context)
 
@@ -78,7 +80,7 @@ def create_accessories(request):
             obj.save()
 
     form = AccessoriesForm()
-    name = Accessories.objects.all()
+    name = Accessories.objects.filter().order_by('-id')[:1]
     context = {
         'form': form,
         'name': name

@@ -5,7 +5,7 @@
 
     <style>
     table {
-    border:#ccc 1px solid black;
+    border: 3px solid black;
     border-collapse:separate;
     border-spacing: 0;
     width: 100%;
@@ -80,8 +80,8 @@ body {
 
 
     </nav>
-    <table width=200 border="1" cellpadding="4" cellspacing="0">
-        <tr>
+    <table width=200 border="3" cellpadding="4" cellspacing="0">
+        <tr >
             <th bgcolor="#AFEEEE" width="500"> Название детали</th>
             <th bgcolor="#AFEEEE"> Код детали</th>
             <th bgcolor="#AFEEEE"> Код цвета</th>
@@ -90,6 +90,7 @@ body {
             <th bgcolor="#F5DEB3"> Дельта</th>
             <th bgcolor="#DAA520"> Корректировка</th>
             <th bgcolor="#DAA520"> Списание в брак</th>
+            <th bgcolor="#DAA520"> Постановка на учет</th>
             <th bgcolor="#00FA9A"> Фактический остаток после корректировки</th>
             <th bgcolor="#00FA9A"> Остаток 1с после корректировки</th>
             <th bgcolor="#00FA9A"> Дельта после корректировки</th>
@@ -105,6 +106,7 @@ body {
             <td bgcolor="#F5DEB3">{{ el.delta }}</td>
             <td bgcolor="#DAA520">{{ el.adjustments }}</td>
             <td bgcolor="#DAA520">{{ el.adjustments_marriage }}</td>
+            <td bgcolor="#DAA520">{{ el.actual_registration }}</td>
             <td bgcolor="#00FA9A">{{ el.after_adjustment_quantity_actual }}</td>
             <td bgcolor="#00FA9A">{{ el.after_adjustment_quantity_1c }}</td>
             <td bgcolor="#00FA9A">{{ el.after_adjustment_delta }}</td>

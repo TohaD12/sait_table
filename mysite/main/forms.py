@@ -7,7 +7,7 @@ class TaskForm(ModelForm):
         model = Task
         fields = ["details_name", "code", "color_code", "quantity_actual", "quantity_1c", "delta", "adjustments",
                   "after_adjustment_quantity_actual", "after_adjustment_quantity_1c", "after_adjustment_delta",
-                  "adjustments_marriage", "release_date"]
+                  "adjustments_marriage", "release_date", "actual_registration"]
         widgets = {
             'details_name': TextInput(attrs={
                 'class': 'form-control',
@@ -41,6 +41,10 @@ class TaskForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Списание в брак'
             }),
+            'actual_registration': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Постановка на учет'
+            }),
             'after_adjustment_quantity_actual': TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Фактический остаток после корректировки'
@@ -66,7 +70,7 @@ class AccessoriesForm(ModelForm):
         model = Accessories
         fields = ["details_name", "code", "quantity_actual", "quantity_1c", "delta", "adjustments",
                   "after_adjustment_quantity_actual", "after_adjustment_quantity_1c", "after_adjustment_delta",
-                  "adjustments_marriage", "release_date"]
+                  "adjustments_marriage", "release_date", "actual_registration"]
         widgets = {
             'details_name': TextInput(attrs={
                 'class': 'form-control',
@@ -95,6 +99,10 @@ class AccessoriesForm(ModelForm):
             'adjustments_marriage': TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Списание в брак'
+            }),
+            'actual_registration': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Постановка на учет'
             }),
             'after_adjustment_quantity_actual': TextInput(attrs={
                 'class': 'form-control',

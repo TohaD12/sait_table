@@ -1,6 +1,54 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <dialog id="dialog" style="">
+  <p>
+      <table width=200 border="1" cellpadding="4" cellspacing="0">
+            <tr>
+                <th bgcolor="#AFEEEE" width="500"> Название детали</th>
+                <th bgcolor="#AFEEEE"> Код детали</th>
+                <th bgcolor="#F5DEB3"> Фактический остаток</th>
+                <th bgcolor="#F5DEB3"> Остаток 1с</th>
+                <th bgcolor="#F5DEB3"> Дельта</th>
+                <th bgcolor="#DAA520"> Корректировка</th>
+                <th bgcolor="#DAA520"> Списание в брак</th>
+                <th bgcolor="#00FA9A"> Фактический остаток после корректировки</th>
+                <th bgcolor="#00FA9A"> Остаток 1с после корректировки</th>
+                <th bgcolor="#00FA9A"> Дельта после корректировки</th>
+                <th> Дата пересчета</th>
+            </tr>
+            {% for el in name %}
+            <tr>
+                <td bgcolor="#AFEEEE" style="width:200px;">{{ el.details_name }}</td>
+                <td bgcolor="#AFEEEE">{{ el.code }}<br></td>
+                <td bgcolor="#F5DEB3">{{ el.quantity_actual }}</td>
+                <td bgcolor="#F5DEB3">{{ el.quantity_1c }}</td>
+                <td bgcolor="#F5DEB3">{{ el.delta }}</td>
+                <td bgcolor="#DAA520">{{ el.adjustments }}</td>
+                <td bgcolor="#DAA520">{{ el.adjustments_marriage }}</td>
+                <td bgcolor="#00FA9A">{{ el.after_adjustment_quantity_actual }}</td>
+                <td bgcolor="#00FA9A">{{ el.after_adjustment_quantity_1c }}</td>
+                <td bgcolor="#00FA9A">{{ el.after_adjustment_delta }}</td>
+                <td>{{ el.release_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  </p>
+  <button id="close" class="btn btn-success">Закрыть</button>
+
+</dialog>
+
+
+<script type = text/javascript>
+var dialog = document.getElementById('dialog');
+dialog.show();
+document.getElementById('dialog').style.height = 'Auto-px';
+var dialog = document.querySelector('dialog');
+
+document.querySelector('#close').onclick = function() {
+  dialog.close();
+};
+</script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
     <style>
@@ -58,18 +106,15 @@ body {
 </head>
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <nav class="my-2 my-md-0 mr-md-3">
-
+         <nav class="my-2 my-md-0 mr-md-3">
         <a href="{% url 'home' %}" class="pressed-button">Данные полуфабрикат</a>
         <a href="{% url 'home_accessories' %}" class="pressed-button">Данные комплектующие</a>
         <a href="{% url 'about' %}" class="pressed-button">Удалить</a>
         <a href="{% url 'create' %}" class="pressed-button">Добавить пересчет полуфабриката</a>
         <a href="{% url 'create_accessories' %}" class="pressed-button">Добавить пересчет комплектующих</a>
+        </nav>
 
-
-  </nav>
-
-</div>
+    </div>
 
 {% block content %}{% endblock %}
 </body>
